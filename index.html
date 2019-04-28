@@ -110,22 +110,30 @@
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a8dad605ff33fe1159930a4bcb8e6c6a"></script>
 <script>
-    var lat = 33.450701; //위도
-    var lon = 126.570667; //경도
+    var _lat = 33.450701; //위도
+    var _lon = 126.570667; //경도
     if(navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
-            this.lat = position.coords.latitude; //위도
-            this.lon = position.coords.longitude; //경도
+            this._lat = position.coords.latitude; //위도
+            this._lon = position.coords.longitude; //경도
 
-            var container = document.getElementById('map');
-            var options = {
-                center: new daum.maps.LatLng(lat, lon),
-                level: 3
-            };
-
-            var map = new daum.maps.Map(container, options);
+            map(this._lat, this._lon);
             
         })
+    } else {
+        map(this._lat, this._lon);
+    }
+
+    function map(lat, lon){
+   
+        var container = document.getElementById('map');
+        var options = {
+            center: new daum.maps.LatLng(lat, lon),
+            level: 3
+        };
+
+        var map = new daum.maps.Map(container, options);
+ 
     }
 </script>
 </body>
