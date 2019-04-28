@@ -1,11 +1,132 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>HasunJung</title>
+    <meta charset="utf-8"/>
+    <title>리뷰</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 <body>
 
-<h1>Hello, </h1>
+<div class="container">
+    <div id="map" style="width:100%;height:300px;"></div>
+    <ul class="nav nav-tabs nav-justified">
+        <li class="active"><a data-toggle="tab" href="#menu1">리뷰</a></li>
+        <li><a data-toggle="tab" href="#menu2">자유게시판</a></li>
+        <li><a data-toggle="tab" href="#menu3">스냅챗st</a></li>
+    </ul>
 
+    <div class="tab-content">
+        <div id="menu1" class="tab-pane fade">
+            <h3>리뷰</h3>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Email</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>john@example.com</td>
+                </tr>
+                <tr>
+                    <td>Mary</td>
+                    <td>Moe</td>
+                    <td>mary@example.com</td>
+                </tr>
+                <tr>
+                    <td>July</td>
+                    <td>Dooley</td>
+                    <td>july@example.com</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="menu2" class="tab-pane fade">
+            <h3>자유게시판</h3>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Email</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>john@example.com</td>
+                </tr>
+                <tr>
+                    <td>Mary</td>
+                    <td>Moe</td>
+                    <td>mary@example.com</td>
+                </tr>
+                <tr>
+                    <td>July</td>
+                    <td>Dooley</td>
+                    <td>july@example.com</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="menu3" class="tab-pane fade">
+            <h3>스냅챗st</h3>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Email</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>john@example.com</td>
+                </tr>
+                <tr>
+                    <td>Mary</td>
+                    <td>Moe</td>
+                    <td>mary@example.com</td>
+                </tr>
+                <tr>
+                    <td>July</td>
+                    <td>Dooley</td>
+                    <td>july@example.com</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a8dad605ff33fe1159930a4bcb8e6c6a"></script>
+<script>
+    var lat = 33.450701; //위도
+    var lon = 126.570667; //경도
+    if(navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            this.lat = position.coords.latitude; //위도
+            this.lon = position.coords.longitude; //경도
+
+            var container = document.getElementById('map');
+            var options = {
+                center: new daum.maps.LatLng(lat, lon),
+                level: 3
+            };
+
+            var map = new daum.maps.Map(container, options);
+            
+        })
+    }
+</script>
 </body>
 </html>
