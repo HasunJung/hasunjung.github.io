@@ -119,9 +119,11 @@
 
             map(this._lat, this._lon);
             
+        }, function (error) {
+            map(this._lat, this._lon);
         })
     } else {
-        map(this._lat, this._lon);
+        alert("Geolocation is not supported by this browser.")
     }
 
     function map(lat, lon){
